@@ -71,8 +71,9 @@ public class AppiumApiDemoAppTests {
 		homeScreen = new HomeScreen(driver);
 		appMenuPage = homeScreen.getAppMenuPage();
 		appActivityPage = appMenuPage.getActivityPage();
-		screenOrientationPage = appActivityPage.browseAppActivityScreen()
-				.getScreenOrientationPage();
+		// screenOrientationPage = appActivityPage.browseAppActivityScreen()
+		// .getScreenOrientationPage();
+		screenOrientationPage = appActivityPage.getScreenOrientationPage();
 		Assert.assertEquals(
 				screenOrientationPage.isItValidScreenOrientationPage(), true);
 		screenOrientationPage.changeScreenOrientation("USER");

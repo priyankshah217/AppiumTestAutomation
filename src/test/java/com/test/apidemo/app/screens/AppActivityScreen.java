@@ -32,18 +32,19 @@ public class AppActivityScreen extends AbstractScreen {
 		// .perform();
 
 		// Swipe can be simulate directly using AppiumDriver
-		
+
 		driver.swipe(0, 1533, 0, 219, 900);
 		return this;
 	}
 
 	public ScreenOrientationScreen getScreenOrientationPage() {
-		for (WebElement el : activityList) {
-			if (el.getText().equals("Screen Orientation")) {
-				el.click();
-				break;
-			}
-		}
+		driver.scrollTo("Screen Orientation").click();
+		// for (WebElement el : activityList) {
+		// if (el.getText().equals("Screen Orientation")) {
+		// el.click();
+		// break;
+		// }
+		// }
 		return new ScreenOrientationScreen(driver);
 	}
 }
