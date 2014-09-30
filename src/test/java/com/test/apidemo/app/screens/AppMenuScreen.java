@@ -1,6 +1,6 @@
 package com.test.apidemo.app.screens;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -14,7 +14,7 @@ public class AppMenuScreen extends AbstractScreen {
 	@AndroidFindBy(name = "Activity")
 	private WebElement appActivity;
 
-	public AppMenuScreen(AppiumDriver driver) {
+	public AppMenuScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 15,

@@ -1,6 +1,6 @@
 package com.test.googlesearch.screens;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +17,7 @@ public class GoogleSearchHomeScreen extends AbstractScreen {
 	@FindBy(partialLinkText = "GitHub")
 	private WebElement githubLink;
 
-	public GoogleSearchHomeScreen(AppiumDriver driver) {
+	public GoogleSearchHomeScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(driver, this);

@@ -1,6 +1,6 @@
 package com.test;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import com.test.utils.TestAppUtils;
 
 public class AppiumApiDemoAppTests {
 	private TestAppUtils testAppUtils;
-	private AppiumDriver driver;
+	private AndroidDriver driver;
 	private HomeScreen homeScreen;
 	private AppMenuScreen appMenuPage;
 	private AppActivityScreen appActivityPage;

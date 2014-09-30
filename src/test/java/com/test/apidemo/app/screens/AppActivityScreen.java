@@ -1,6 +1,6 @@
 package com.test.apidemo.app.screens;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -15,7 +15,7 @@ public class AppActivityScreen extends AbstractScreen {
 	@AndroidFindBy(id = "android:id/text1")
 	private List<WebElement> activityList;
 
-	public AppActivityScreen(AppiumDriver driver) {
+	public AppActivityScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 15,

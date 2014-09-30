@@ -59,7 +59,7 @@ public class AppiumGoogleSearchMobileWebTests {
 		appiumGitHubScreen.viewAllIssues().navigateToIssue("#3564");
 	}
 
-	@Test(groups = { "Smoke" }, enabled = true)
+	@Test(groups = { "Smoke" }, enabled = false)
 	public void testZoomAndPinchGesture() {
 
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
@@ -68,7 +68,7 @@ public class AppiumGoogleSearchMobileWebTests {
 		appiumGitHubScreen.zoomInWebPage();
 	}
 
-	@Test(groups = { "Smoke" }, enabled = false)
+	@Test(groups = { "Smoke" }, enabled = true)
 	public void testScreenRotation() {
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
 		googleSearchHomeScreen.openGoogleSearch().rotateScreen();
