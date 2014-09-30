@@ -1,6 +1,6 @@
 package com.test.utils;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -23,7 +23,7 @@ public class TestAppUtils {
 	private static String APPIUM_PORT;
 	private DesiredCapabilities capabilities;
 	private URL serverUrl;
-	private AppiumDriver driver;
+	private AndroidDriver driver;
 
 	public TestAppUtils() {
 		// TODO Auto-generated constructor stub
@@ -49,9 +49,9 @@ public class TestAppUtils {
 		capabilities.setCapability(capabilityName, capabilityValue);
 	}
 
-	public AppiumDriver getDriver() throws MalformedURLException {
-		serverUrl = new URL("http://localhost:" + APPIUM_PORT + "/wd/hub");
-		driver = new AppiumDriver(serverUrl, capabilities);
+	public AndroidDriver getDriver() throws MalformedURLException {
+		serverUrl = new URL("http://localhost:" + APPIUM_PORT + "/wd/hub");		
+		driver = new AndroidDriver(serverUrl, capabilities);
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		return driver;
 	}

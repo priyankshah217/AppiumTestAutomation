@@ -1,6 +1,6 @@
 package com.test;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ import com.test.utils.TestAppUtils;
 
 public class AppiumGoogleSearchMobileWebTests {
 	private TestAppUtils testAppUtils;
-	private AppiumDriver driver;
+	private AndroidDriver driver;
 	private GoogleSearchHomeScreen googleSearchHomeScreen;
 	private AppiumGithubScreen appiumGitHubScreen;
 
@@ -59,7 +59,7 @@ public class AppiumGoogleSearchMobileWebTests {
 		appiumGitHubScreen.viewAllIssues().navigateToIssue("#3564");
 	}
 
-	@Test(groups = { "Smoke" }, enabled = false)
+	@Test(groups = { "Smoke" }, enabled = true)
 	public void testZoomAndPinchGesture() {
 
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
@@ -68,7 +68,7 @@ public class AppiumGoogleSearchMobileWebTests {
 		appiumGitHubScreen.zoomInWebPage();
 	}
 
-	@Test(groups = { "Smoke" }, enabled = true)
+	@Test(groups = { "Smoke" }, enabled = false)
 	public void testScreenRotation() {
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
 		googleSearchHomeScreen.openGoogleSearch().rotateScreen();
