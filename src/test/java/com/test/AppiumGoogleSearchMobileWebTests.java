@@ -50,12 +50,27 @@ public class AppiumGoogleSearchMobileWebTests {
 		driver.quit();
 	}
 
-	@Test(groups = { "Smoke" }, enabled = true)
+	@Test(groups = { "Smoke" }, enabled = false)
 	public void testBrowseTopic() {
 
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
 		appiumGitHubScreen = googleSearchHomeScreen.openGoogleSearch()
 				.searchFor("Appium").openAppiumGitHub();
 		appiumGitHubScreen.viewAllIssues().navigateToIssue("#3564");
+	}
+
+	@Test(groups = { "Smoke" }, enabled = false)
+	public void testZoomAndPinchGesture() {
+
+		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
+		appiumGitHubScreen = googleSearchHomeScreen.openGoogleSearch()
+				.searchFor("Appium").openAppiumGitHub();
+		appiumGitHubScreen.zoomInWebPage();
+	}
+
+	@Test(groups = { "Smoke" }, enabled = true)
+	public void testScreenRotation() {
+		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
+		googleSearchHomeScreen.openGoogleSearch().rotateScreen();
 	}
 }

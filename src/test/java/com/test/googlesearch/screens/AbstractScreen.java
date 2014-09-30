@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
 
 public abstract class AbstractScreen {
@@ -29,9 +30,14 @@ public abstract class AbstractScreen {
 		}
 	}
 
+	public void rotateScreen() {
+		driver.rotate(ScreenOrientation.LANDSCAPE);
+		// TODO Auto-generated method stub
+	}
+
 	protected void takeScreenShot(String fileName) {
 		// TODO Auto-generated method stub
-		File file = new File(fileName+".png");
+		File file = new File(fileName + ".png");
 		File tmpFile = ((TakesScreenshot) driver)
 				.getScreenshotAs(OutputType.FILE);
 		try {

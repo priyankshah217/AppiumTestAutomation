@@ -1,6 +1,8 @@
 package com.test.googlesearch.screens;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MultiTouchAction;
+import io.appium.java_client.TouchAction;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -26,9 +28,25 @@ public class AppiumGithubScreen extends AbstractScreen {
 		return this;
 	}
 
-	public void navigateToIssue(String issueNo) {		
-		while (!isElementPresent(By.name(issueNo))) {
+	public void navigateToIssue(String issueNo) {
+		if (!isElementPresent(By.name(issueNo))) {
 			nextIssuePageLink.click();
 		}
 	}
+
+	public AppiumGithubScreen zoomInWebPage() {
+		// TODO Auto-generated method stub
+		TouchAction action1 = new TouchAction(driver);
+		TouchAction action2 = new TouchAction(driver);
+		action1.press(620, 885).waitAction(300).moveTo(620, 590).release();
+		action1.press(620, 885).waitAction(300).moveTo(620, 1408).release();
+		MultiTouchAction multiTouchActions = new MultiTouchAction(driver);
+		multiTouchActions.add(action1).add(action2).perform();
+		return this;
+	}
+
+	public AppiumGithubScreen zoomOutWebPage() {
+		// TODO Auto-generated method stub
+		return this;
+	}	
 }

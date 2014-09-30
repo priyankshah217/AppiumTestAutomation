@@ -23,7 +23,7 @@
 			<class name="com.test.AppiumApiDemoAppTests" />
 		</classes>
 	</test>
-	<test name="SelendroidAppDemoTest" verbose="5" enabled="true">
+	<test name="GitHubMobileWebSite" verbose="5" enabled="true">
 		<groups>
 			<run>
 				<include name="Smoke" />

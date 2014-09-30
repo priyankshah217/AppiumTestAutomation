@@ -43,7 +43,7 @@ public class AppiumSelendroidAppTests {
 		testAppUtils.setCapability("appium-version", "1.2.2");
 		testAppUtils.setCapability("platformName", "Android");
 		testAppUtils.setCapability("deviceName", "Android");
-		testAppUtils.setCapability("automationName", "Appium");
+		testAppUtils.setCapability("automationName", "Selendroid");
 		testAppUtils.setCapability("app", new File(ClassLoader
 				.getSystemResource(TestAppUtils.APPLICATION_NAME).getFile())
 				.getAbsolutePath());
