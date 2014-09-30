@@ -1,6 +1,6 @@
 package com.test.selendroid.app.screens;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -35,7 +35,7 @@ public class UserRegistrationScreen extends AbstractScreen {
 	@AndroidFindBy(id = "io.selendroid.testapp:id/btnRegisterUser")
 	private WebElement registerButton;
 
-	public UserRegistrationScreen(AppiumDriver driver) {
+	public UserRegistrationScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);

@@ -1,11 +1,11 @@
 package com.test;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 
 import java.io.File;
 import java.io.IOException;
 
-import org.openqa.selenium.remote.CapabilityType;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -39,19 +39,25 @@ public class AppiumApiDemoAppTests {
 	public void beforeClass() throws IOException {
 		TestAppUtils.loadConfigProp("config_apidemo_test_app.properties");
 		testAppUtils = new TestAppUtils();
-		testAppUtils.setCapability(CapabilityType.BROWSER_NAME, "");
-		testAppUtils.setCapability("platformVersion", "4.4.2");
-		testAppUtils.setCapability("appium-version", "1.2.2");
-		testAppUtils.setCapability("platformName", "Android");
-		testAppUtils.setCapability("deviceName", "Android");
-		testAppUtils.setCapability("automationName", "Appium");
-		testAppUtils.setCapability("app", new File(ClassLoader
-				.getSystemResource(TestAppUtils.APPLICATION_NAME).getFile())
-				.getAbsolutePath());
-		testAppUtils.setCapability("newCommandTimeout", "3600");
-		testAppUtils.setCapability("deviceReadyTimeout", "3600");
-		testAppUtils.setCapability("appActivity", TestAppUtils.APP_ACTIVITY);
-		testAppUtils.setCapability("appPackage", TestAppUtils.BASE_PKG);
+		testAppUtils.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_VERSION,
+				"4.4.2");
+		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_NAME,
+				"Android");
+		testAppUtils.setCapability(MobileCapabilityType.DEVICE_NAME, "Android");
+		testAppUtils.setCapability(MobileCapabilityType.AUTOMATION_NAME,
+				"Appium");
+		testAppUtils.setCapability(MobileCapabilityType.APP, new File(
+				ClassLoader.getSystemResource(TestAppUtils.APPLICATION_NAME)
+						.getFile()).getAbsolutePath());
+		testAppUtils.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,
+				"300");
+		testAppUtils.setCapability(MobileCapabilityType.DEVICE_READY_TIMEOUT,
+				"300");
+		testAppUtils.setCapability(MobileCapabilityType.APP_ACTIVITY,
+				TestAppUtils.APP_ACTIVITY);
+		testAppUtils.setCapability(MobileCapabilityType.APP_PACKAGE,
+				TestAppUtils.BASE_PKG);
 		driver = testAppUtils.getDriver();
 	}
 

@@ -1,6 +1,6 @@
 package com.test.selendroid.app.screens;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -12,7 +12,7 @@ public class VerifyUserScreen extends AbstractScreen {
 	@AndroidFindBy(id = "io.selendroid.testapp:id/buttonRegisterUser")
 	private WebElement registerUserButton;
 
-	public VerifyUserScreen(AppiumDriver driver) {
+	public VerifyUserScreen(AndroidDriver driver) {
 		// TODO Auto-generated constructor stub
 		super(driver);
 		// TODO Auto-generated constructor stub

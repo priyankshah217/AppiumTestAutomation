@@ -1,11 +1,11 @@
 package com.test;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 
 import java.io.File;
 import java.io.IOException;
 
-import org.openqa.selenium.remote.CapabilityType;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -20,7 +20,7 @@ import com.test.utils.TestAppUtils;
 
 public class AppiumSelendroidAppTests {
 	private TestAppUtils testAppUtils;
-	private AppiumDriver driver;
+	private AndroidDriver driver;
 	private UserRegistrationScreen userRegistrationScreen;
 	private HomeScreen homeScreen;
 	private VerifyUserScreen verifyUserScreen;
@@ -38,19 +38,25 @@ public class AppiumSelendroidAppTests {
 	public void beforeClass() throws IOException {
 		TestAppUtils.loadConfigProp("config_selendroid_test_app.properties");
 		testAppUtils = new TestAppUtils();
-		testAppUtils.setCapability(CapabilityType.BROWSER_NAME, "");
-		testAppUtils.setCapability("platformVersion", "4.4.2");
-		testAppUtils.setCapability("appium-version", "1.2.2");
-		testAppUtils.setCapability("platformName", "Android");
-		testAppUtils.setCapability("deviceName", "Android");
-		testAppUtils.setCapability("automationName", "Selendroid");
-		testAppUtils.setCapability("app", new File(ClassLoader
-				.getSystemResource(TestAppUtils.APPLICATION_NAME).getFile())
-				.getAbsolutePath());
-		testAppUtils.setCapability("newCommandTimeout", "3600");
-		testAppUtils.setCapability("deviceReadyTimeout", "3600");
-		testAppUtils.setCapability("appActivity", TestAppUtils.APP_ACTIVITY);
-		testAppUtils.setCapability("appPackage", TestAppUtils.BASE_PKG);
+		testAppUtils.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_VERSION,
+				"4.4.2");
+		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_NAME,
+				"Android");
+		testAppUtils.setCapability(MobileCapabilityType.DEVICE_NAME, "Android");
+		testAppUtils.setCapability(MobileCapabilityType.AUTOMATION_NAME,
+				"Appium");
+		testAppUtils.setCapability(MobileCapabilityType.APP, new File(
+				ClassLoader.getSystemResource(TestAppUtils.APPLICATION_NAME)
+						.getFile()).getAbsolutePath());
+		testAppUtils.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,
+				"300");
+		testAppUtils.setCapability(MobileCapabilityType.DEVICE_READY_TIMEOUT,
+				"300");
+		testAppUtils.setCapability(MobileCapabilityType.APP_ACTIVITY,
+				TestAppUtils.APP_ACTIVITY);
+		testAppUtils.setCapability(MobileCapabilityType.APP_PACKAGE,
+				TestAppUtils.BASE_PKG);
 		driver = testAppUtils.getDriver();
 	}
 
