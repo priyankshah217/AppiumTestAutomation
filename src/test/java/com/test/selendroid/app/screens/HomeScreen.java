@@ -55,8 +55,8 @@ public class HomeScreen extends AbstractScreen {
 		userRegistrationButton.click();
 		return new UserRegistrationScreen(driver);
 	}
-	
-	public WebViewScreen openWebView(){
+
+	public WebViewScreen openWebView() {
 		startWebViewButton.click();
 		return new WebViewScreen(driver);
 	}

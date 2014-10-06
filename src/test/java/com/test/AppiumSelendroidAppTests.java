@@ -65,7 +65,7 @@ public class AppiumSelendroidAppTests {
 		driver.quit();
 	}
 
-	@Test(groups = { "Smoke" }, enabled = true)
+	@Test(groups = { "Smoke" }, enabled = false)
 	public void testRegisterUser() {
 		homeScreen = new HomeScreen(driver);
 		userRegistrationScreen = homeScreen.getUserRegistration();
@@ -77,9 +77,9 @@ public class AppiumSelendroidAppTests {
 	}
 
 	@Test(groups = { "Smoke" }, enabled = true)
-	public void testWebView() {
-		homeScreen = new HomeScreen(driver);
-		webViewScreen = homeScreen.openWebView();
+	public void testWebView() {		
+		homeScreen = new HomeScreen(driver);		
+		webViewScreen = homeScreen.openWebView();		
 		webViewScreen.selectOptionFromList();
 	}
 }

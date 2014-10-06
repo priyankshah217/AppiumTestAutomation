@@ -34,8 +34,14 @@ Script Description
 	* apk Location: /src/test/resources
 	* Type of Application: Hybrid
 	* Gesture Simulated: Swipe/Scroll
+	
+3. AppiumEmployeeDirectoryAppTests:
+	* apk Name: employee-directory.apk
+	* apk Location: /src/test/resources
+	* Type of Application: Hybrid
+	* Gesture Simulated: Swipe/Scroll
 
-3. AppiumGoogleSearchMobileWebTests:
+4. AppiumGoogleSearchMobileWebTests:
 	* apk Name: N/A
 	* apk Location: N/A
 	* Type of Application: Mobile app

@@ -3,7 +3,7 @@
 	skipfailedinvocationCounts="false" thread-count="100">
 	<!-- parameter name="config-file" value="src/test/resources/default.properties" -->
 
-	<test name="SelendroidAppDemoTest" verbose="5" enabled="false">
+	<test name="SelendroidAppTest" verbose="5" enabled="false">
 		<groups>
 			<run>
 				<include name="Smoke" />
@@ -13,7 +13,7 @@
 			<class name="com.test.AppiumSelendroidAppTests" />
 		</classes>
 	</test>
-	<test name="ApiDemoTests" verbose="5" enabled="true">
+	<test name="ApiDemoTests" verbose="5" enabled="false">
 		<groups>
 			<run>
 				<include name="Smoke" />
@@ -23,7 +23,7 @@
 			<class name="com.test.AppiumApiDemoAppTests" />
 		</classes>
 	</test>
-	<test name="GitHubMobileWebSite" verbose="5" enabled="false">
+	<test name="GitHubMobileWebSiteTests" verbose="5" enabled="false">
 		<groups>
 			<run>
 				<include name="Smoke" />
@@ -33,6 +33,16 @@
 			<class name="com.test.AppiumGoogleSearchMobileWebTests" />
 		</classes>
 	</test>
+	<test name="EmployeeDirectoryTests" verbose="5" enabled="true">
+		<groups>
+			<run>
+				<include name="Smoke" />
+			</run>
+		</groups>
+		<classes parallel="false" preserve-order="true">
+			<class name="com.test.AppiumEmployeeDirectoryAppTests" />
+		</classes>
+	</test>	
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />

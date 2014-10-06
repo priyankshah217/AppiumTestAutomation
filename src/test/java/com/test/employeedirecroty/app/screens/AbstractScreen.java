@@ -1,9 +1,12 @@
-package com.test.selendroid.app.screens;
+package com.test.employeedirecroty.app.screens;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -11,8 +14,16 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.test.utils.TestAppUtils;
 
 public abstract class AbstractScreen {
+
+	@AndroidFindBy(className = "android.webkit.WebView")
+	private WebElement androidWebView;
 
 	public AndroidDriver driver;
 
@@ -32,6 +43,29 @@ public abstract class AbstractScreen {
 			return true;
 		} catch (NoSuchElementException e) {
 			return false;
+		}
+	}
+
+	public void switchToWebView() {
+
+		driver.manage()
+				.timeouts()
+				.implicitlyWait(TestAppUtils.DEFAULT_WAIT_TIME,
+						TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver,
+				TestAppUtils.EXPLICIT_WAIT_TIME);
+		wait.until(ExpectedConditions.visibilityOf(androidWebView));
+		driver.manage()
+				.timeouts()
+				.implicitlyWait(TestAppUtils.EXPLICIT_WAIT_TIME,
+						TimeUnit.SECONDS);
+
+		Set<String> contextSet = driver.getContextHandles();
+		for (String contextName : contextSet) {
+			if (contextName.contains("WEBVIEW")) {
+				driver.context(contextName);				
+				break;
+			}
 		}
 	}
 

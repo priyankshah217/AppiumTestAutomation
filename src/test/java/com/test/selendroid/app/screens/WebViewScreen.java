@@ -29,12 +29,13 @@ public class WebViewScreen extends AbstractScreen {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	public void selectOptionFromList() {
+	public WebViewScreen selectOptionFromList() {
 		selectItemFromList.click();
 		optionList.get(0).click();
 		enterNameText.clear();
 		enterNameText.sendKeys("abc@abc.com");
 		buttonList.get(1).click();
+		return this;
 	}
 
 }
