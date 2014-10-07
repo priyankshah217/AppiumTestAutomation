@@ -13,7 +13,7 @@
 			<class name="com.test.TestAppiumSelendroidApp" />
 		</classes>
 	</test>
-	<test name="ApiDemoTests" verbose="5" enabled="false">
+	<test name="ApiDemoTests" verbose="5" enabled="true">
 		<groups>
 			<run>
 				<include name="Smoke" />

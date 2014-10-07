@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AppMenuScreen extends AbstractScreen {
 
-	@AndroidFindBy(name = "Activity")
+	@AndroidFindBy(accessibility = "Activity")
 	private WebElement appActivity;
 
 	public AppMenuScreen(AndroidDriver driver) {

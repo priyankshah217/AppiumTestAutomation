@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomeScreen extends AbstractScreen {
 
-	@AndroidFindBy(name = "App")
+	@AndroidFindBy(accessibility = "App")
 	private WebElement appMenuItem;
 
 	public HomeScreen(AndroidDriver driver) {
