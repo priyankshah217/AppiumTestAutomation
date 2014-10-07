@@ -3,14 +3,14 @@
 	skipfailedinvocationCounts="false" thread-count="100">
 	<!-- parameter name="config-file" value="src/test/resources/default.properties" -->
 
-	<test name="SelendroidAppTest" verbose="5" enabled="false">
+	<test name="SelendroidAppTests" verbose="5" enabled="false">
 		<groups>
 			<run>
 				<include name="Smoke" />
 			</run>
 		</groups>
 		<classes parallel="false" preserve-order="true">
-			<class name="com.test.AppiumSelendroidAppTests" />
+			<class name="com.test.TestAppiumSelendroidApp" />
 		</classes>
 	</test>
 	<test name="ApiDemoTests" verbose="5" enabled="false">
@@ -20,17 +20,17 @@
 			</run>
 		</groups>
 		<classes parallel="false" preserve-order="true">
-			<class name="com.test.AppiumApiDemoAppTests" />
+			<class name="com.test.TestAppiumApiDemoApp" />
 		</classes>
 	</test>
-	<test name="GitHubMobileWebSiteTests" verbose="5" enabled="false">
+	<test name="GitHubMobileWebSiteTests" verbose="5" enabled="true">
 		<groups>
 			<run>
 				<include name="Smoke" />
 			</run>
 		</groups>
 		<classes parallel="false" preserve-order="true">
-			<class name="com.test.AppiumGoogleSearchMobileWebTests" />
+			<class name="com.test.TestAppiumGoogleSearchMobileWeb" />
 		</classes>
 	</test>
 	<test name="EmployeeDirectoryTests" verbose="5" enabled="true">
@@ -40,9 +40,9 @@
 			</run>
 		</groups>
 		<classes parallel="false" preserve-order="true">
-			<class name="com.test.AppiumEmployeeDirectoryAppTests" />
+			<class name="com.test.TestAppiumEmployeeDirectoryApp" />
 		</classes>
-	</test>	
+	</test>
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />

@@ -14,10 +14,10 @@ import org.testng.annotations.Test;
 import com.test.employeedirecroty.app.screens.DirectReportScreen;
 import com.test.employeedirecroty.app.screens.EmployeeDetailsScreen;
 import com.test.employeedirecroty.app.screens.HomeScreen;
-import com.test.utils.TestAppUtils;
+import com.test.utils.AppUtils;
 
-public class AppiumEmployeeDirectoryAppTests {
-	private TestAppUtils testAppUtils;
+public class TestAppiumEmployeeDirectoryApp {
+	private AppUtils testAppUtils;
 	private AndroidDriver driver;
 	private HomeScreen homeScreen;
 	private EmployeeDetailsScreen employeeDetailsScreen;
@@ -25,9 +25,9 @@ public class AppiumEmployeeDirectoryAppTests {
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() throws IOException {
-		TestAppUtils
+		AppUtils
 				.loadConfigProp("config_employee_directory_test_app.properties");
-		testAppUtils = new TestAppUtils();
+		testAppUtils = new AppUtils();
 		testAppUtils.setCapability(MobileCapabilityType.BROWSER_NAME, "");
 		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_VERSION,
 				"4.4.2");
@@ -37,16 +37,16 @@ public class AppiumEmployeeDirectoryAppTests {
 		testAppUtils.setCapability(MobileCapabilityType.AUTOMATION_NAME,
 				"Appium");
 		testAppUtils.setCapability(MobileCapabilityType.APP, new File(
-				ClassLoader.getSystemResource(TestAppUtils.APPLICATION_NAME)
+				ClassLoader.getSystemResource(AppUtils.APPLICATION_NAME)
 						.getFile()).getAbsolutePath());
 		testAppUtils.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,
 				"300");
 		testAppUtils.setCapability(MobileCapabilityType.DEVICE_READY_TIMEOUT,
 				"300");
 		testAppUtils.setCapability(MobileCapabilityType.APP_ACTIVITY,
-				TestAppUtils.APP_ACTIVITY);
+				AppUtils.APP_ACTIVITY);
 		testAppUtils.setCapability(MobileCapabilityType.APP_PACKAGE,
-				TestAppUtils.BASE_PKG);
+				AppUtils.BASE_PKG);
 		driver = testAppUtils.getDriver();
 	}
 

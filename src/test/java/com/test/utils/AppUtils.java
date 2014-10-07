@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class TestAppUtils {
+public class AppUtils {
 
 	private static Properties prop = new Properties();
 	public static int EXPLICIT_WAIT_TIME;
@@ -25,7 +25,7 @@ public class TestAppUtils {
 	private URL serverUrl;
 	private AndroidDriver driver;
 
-	public TestAppUtils() {
+	public AppUtils() {
 		// TODO Auto-generated constructor stub
 		capabilities = new DesiredCapabilities();
 	}

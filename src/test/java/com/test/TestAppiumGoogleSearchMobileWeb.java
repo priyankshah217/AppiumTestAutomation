@@ -13,10 +13,10 @@ import org.testng.annotations.Test;
 
 import com.test.googlesearch.screens.AppiumGithubScreen;
 import com.test.googlesearch.screens.GoogleSearchHomeScreen;
-import com.test.utils.TestAppUtils;
+import com.test.utils.AppUtils;
 
-public class AppiumGoogleSearchMobileWebTests {
-	private TestAppUtils testAppUtils;
+public class TestAppiumGoogleSearchMobileWeb {
+	private AppUtils testAppUtils;
 	private AndroidDriver driver;
 	private GoogleSearchHomeScreen googleSearchHomeScreen;
 	private AppiumGithubScreen appiumGitHubScreen;
@@ -31,9 +31,8 @@ public class AppiumGoogleSearchMobileWebTests {
 
 	@BeforeClass(alwaysRun = true)
 	public void beforeClass() throws IOException {
-		TestAppUtils
-				.loadConfigProp("config_googlesearch_mobile_web.properties");
-		testAppUtils = new TestAppUtils();
+		AppUtils.loadConfigProp("config_googlesearch_mobile_web.properties");
+		testAppUtils = new AppUtils();
 		testAppUtils.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_VERSION,
 				"4.4.2");
@@ -50,9 +49,8 @@ public class AppiumGoogleSearchMobileWebTests {
 		driver.quit();
 	}
 
-	@Test(groups = { "Smoke" }, enabled = false)
+	@Test(groups = { "Smoke" }, enabled = true)
 	public void testBrowseTopic() {
-
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
 		appiumGitHubScreen = googleSearchHomeScreen.openGoogleSearch()
 				.searchFor("Appium").openAppiumGitHub();
@@ -61,14 +59,13 @@ public class AppiumGoogleSearchMobileWebTests {
 
 	@Test(groups = { "Smoke" }, enabled = false)
 	public void testZoomAndPinchGesture() {
-
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
 		appiumGitHubScreen = googleSearchHomeScreen.openGoogleSearch()
 				.searchFor("Appium").openAppiumGitHub();
 		appiumGitHubScreen.zoomInWebPage();
 	}
 
-	@Test(groups = { "Smoke" }, enabled = true)
+	@Test(groups = { "Smoke" }, enabled = false)
 	public void testScreenRotation() {
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
 		googleSearchHomeScreen.openGoogleSearch().rotateScreen();

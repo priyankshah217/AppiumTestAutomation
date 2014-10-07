@@ -18,7 +18,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.test.utils.TestAppUtils;
+import com.test.utils.AppUtils;
 
 public abstract class AbstractScreen {
 
@@ -50,14 +50,14 @@ public abstract class AbstractScreen {
 
 		driver.manage()
 				.timeouts()
-				.implicitlyWait(TestAppUtils.DEFAULT_WAIT_TIME,
+				.implicitlyWait(AppUtils.DEFAULT_WAIT_TIME,
 						TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver,
-				TestAppUtils.EXPLICIT_WAIT_TIME);
+				AppUtils.EXPLICIT_WAIT_TIME);
 		wait.until(ExpectedConditions.visibilityOf(androidWebView));
 		driver.manage()
 				.timeouts()
-				.implicitlyWait(TestAppUtils.EXPLICIT_WAIT_TIME,
+				.implicitlyWait(AppUtils.EXPLICIT_WAIT_TIME,
 						TimeUnit.SECONDS);
 
 		Set<String> contextSet = driver.getContextHandles();

@@ -3,9 +3,7 @@ AppiumTestAutomation
 
 This is implementation of PageFactory framework with Appium for Android device.
 
-Current framework provide basic implementation of PageFactory frame and demostrated on native android application.
-
-The same implementation for mobile sites and Hybrid apps will be covered later.
+Current framework provide basic implementation of PageFactory frame and demonstrated on native android application.
 
 
 Prerequisite
