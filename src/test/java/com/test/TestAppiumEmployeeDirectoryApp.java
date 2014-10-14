@@ -78,7 +78,7 @@ public class TestAppiumEmployeeDirectoryApp {
 				true, "Error in direct report");
 	}
 
-	@Test(groups = { "Smoke" }, enabled = true)
+	@Test(groups = { "Smoke" }, enabled = false)
 	public void testScrolling() {
 		String employeeName = "";
 		homeScreen = new HomeScreen(driver);

@@ -17,11 +17,17 @@ public class WebViewScreen extends AbstractScreen {
 	@AndroidFindBy(id = "android:id/text1")
 	private List<WebElement> optionList;
 
+	@AndroidFindBy(uiAutomator = "new UiSelector().testContains(\"iframes\")")
+	private WebElement iFrameOption;
+
 	@AndroidFindBy(className = "android.widget.EditText")
 	private WebElement enterNameText;
 
 	@AndroidFindBy(className = "android.widget.Button")
 	private List<WebElement> buttonList;
+
+	@AndroidFindBy(id = "io.selendroid.testapp:id/mainWebView")
+	private WebElement mainWebView;
 
 	public WebViewScreen(AndroidDriver driver) {
 		super(driver);

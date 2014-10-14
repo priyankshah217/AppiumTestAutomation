@@ -77,9 +77,9 @@ public class TestAppiumSelendroidApp {
 	}
 
 	@Test(groups = { "Smoke" }, enabled = true)
-	public void testWebView() {		
-		homeScreen = new HomeScreen(driver);		
-		webViewScreen = homeScreen.openWebView();		
+	public void testWebView() {
+		homeScreen = new HomeScreen(driver);
+		webViewScreen = homeScreen.openWebView();
 		webViewScreen.selectOptionFromList();
 	}
 }

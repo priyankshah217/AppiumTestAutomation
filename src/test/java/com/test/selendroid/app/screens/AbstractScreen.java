@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -32,6 +33,17 @@ public abstract class AbstractScreen {
 			return true;
 		} catch (NoSuchElementException e) {
 			return false;
+		}
+	}
+	
+	public void switchToWebContext() {
+		Set<String> contextSet = driver.getContextHandles();
+		for (String context : contextSet) {
+			System.out.println(context);
+			if (context.contains("WEBVIEW")) {
+				driver.context(context);
+				break;
+			}
 		}
 	}
 
