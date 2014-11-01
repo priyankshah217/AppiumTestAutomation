@@ -1,7 +1,6 @@
 package com.test;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 
 import java.io.IOException;
 
@@ -16,38 +15,20 @@ import com.test.googlesearch.screens.GoogleSearchHomeScreen;
 import com.test.utils.AppUtils;
 
 public class TestAppiumGoogleSearchMobileWeb {
-	private AppUtils testAppUtils;
 	private AndroidDriver driver;
 	private GoogleSearchHomeScreen googleSearchHomeScreen;
 	private AppiumGithubScreen appiumGitHubScreen;
-
-	@BeforeMethod
-	public void beforeMethod() {
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-	}
-
-	@BeforeClass(alwaysRun = true)
-	public void beforeClass() throws IOException {
+	
+	@BeforeClass(alwaysRun=true)
+	public void initAutomation() throws IOException{
 		AppUtils.loadConfigProp("config_googlesearch_mobile_web.properties");
-		testAppUtils = new AppUtils();
-		testAppUtils.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
-		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_VERSION,
-				"4.4.2");
-		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_NAME,
-				"Android");
-		testAppUtils.setCapability(MobileCapabilityType.DEVICE_NAME, "Android");
-		testAppUtils.setCapability(MobileCapabilityType.AUTOMATION_NAME,
-				"Appium");
-		driver = testAppUtils.getDriver();
+		AppUtils.setCapabilities();
 	}
 
-	@AfterClass(alwaysRun = true)
-	public void afterClass() {
-		driver.quit();
-	}
+	@BeforeMethod(alwaysRun = true)
+	public void setUp() throws IOException {		
+		driver = AppUtils.getDriver();
+	}	
 
 	@Test(groups = { "Smoke" }, enabled = true)
 	public void testBrowseTopic() {
@@ -69,5 +50,14 @@ public class TestAppiumGoogleSearchMobileWeb {
 	public void testScreenRotation() {
 		googleSearchHomeScreen = new GoogleSearchHomeScreen(driver);
 		googleSearchHomeScreen.openGoogleSearch().rotateScreen();
+	}
+	
+	@AfterMethod
+	public void afterMethod() {
+	}
+	
+	@AfterClass(alwaysRun = true)
+	public void afterClass() {
+		driver.quit();
 	}
 }

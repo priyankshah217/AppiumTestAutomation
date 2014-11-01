@@ -4,7 +4,8 @@ import io.appium.java_client.android.AndroidDriver;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
+import com.test.utils.AbstractScreen;
 
 public class GoogleSearchHomeScreen extends AbstractScreen {
 
@@ -20,7 +21,7 @@ public class GoogleSearchHomeScreen extends AbstractScreen {
 	public GoogleSearchHomeScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
-		PageFactory.initElements(driver, this);
+		loadPage();
 	}
 
 	public GoogleSearchHomeScreen openGoogleSearch() {

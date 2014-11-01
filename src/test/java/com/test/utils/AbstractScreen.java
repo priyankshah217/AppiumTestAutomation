@@ -1,7 +1,8 @@
-package com.test.employeedirecroty.app.screens;
+package com.test.utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,10 +16,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.test.utils.AppUtils;
 
 public abstract class AbstractScreen {
 
@@ -31,10 +31,9 @@ public abstract class AbstractScreen {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 	}
-
-	public void rotateScreen() {
-		driver.rotate(ScreenOrientation.LANDSCAPE);
-		// TODO Auto-generated method stub
+	
+	public void loadPage(){
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);		
 	}
 
 	protected boolean isElementPresent(By by) {
@@ -45,9 +44,13 @@ public abstract class AbstractScreen {
 			return false;
 		}
 	}
+	
+	public void rotateScreen() {
+		driver.rotate(ScreenOrientation.LANDSCAPE);
+		// TODO Auto-generated method stub
+	}
 
 	public void switchToWebView() {
-
 		driver.manage()
 				.timeouts()
 				.implicitlyWait(AppUtils.DEFAULT_WAIT_TIME,
@@ -62,14 +65,15 @@ public abstract class AbstractScreen {
 
 		Set<String> contextSet = driver.getContextHandles();
 		for (String contextName : contextSet) {
-			if (contextName.contains("WEBVIEW")) {
+			System.out.println(contextName);
+			if (!contextName.contains("NATIVE_APP")) {
 				driver.context(contextName);				
 				break;
 			}
 		}
 	}
 
-	protected void takeScreenShot(String fileName) {
+	public void takeScreenShot(String fileName) {
 		// TODO Auto-generated method stub
 		File file = new File(fileName + ".png");
 		File tmpFile = ((TakesScreenshot) driver)

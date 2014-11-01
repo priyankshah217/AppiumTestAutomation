@@ -1,9 +1,7 @@
 package com.test;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.testng.annotations.AfterClass;
@@ -19,51 +17,22 @@ import com.test.selendroid.app.screens.WebViewScreen;
 import com.test.utils.AppUtils;
 
 public class TestAppiumSelendroidApp {
-	private AppUtils testAppUtils;
 	private AndroidDriver driver;
 	private UserRegistrationScreen userRegistrationScreen;
 	private HomeScreen homeScreen;
 	private VerifyUserScreen verifyUserScreen;
 	private WebViewScreen webViewScreen;
-
-	@BeforeMethod
-	public void beforeMethod() {
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-	}
-
-	@BeforeClass(alwaysRun = true)
-	public void beforeClass() throws IOException {
+	
+	@BeforeClass(alwaysRun=true)
+	public void initAutomation() throws IOException{
 		AppUtils.loadConfigProp("config_selendroid_test_app.properties");
-		testAppUtils = new AppUtils();
-		testAppUtils.setCapability(MobileCapabilityType.BROWSER_NAME, "");
-		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_VERSION,
-				"4.4.2");
-		testAppUtils.setCapability(MobileCapabilityType.PLATFORM_NAME,
-				"Android");
-		testAppUtils.setCapability(MobileCapabilityType.DEVICE_NAME, "Android");
-		testAppUtils.setCapability(MobileCapabilityType.AUTOMATION_NAME,
-				"Appium");
-		testAppUtils.setCapability(MobileCapabilityType.APP, new File(
-				ClassLoader.getSystemResource(AppUtils.APPLICATION_NAME)
-						.getFile()).getAbsolutePath());
-		testAppUtils.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,
-				"300");
-		testAppUtils.setCapability(MobileCapabilityType.DEVICE_READY_TIMEOUT,
-				"300");
-		testAppUtils.setCapability(MobileCapabilityType.APP_ACTIVITY,
-				AppUtils.APP_ACTIVITY);
-		testAppUtils.setCapability(MobileCapabilityType.APP_PACKAGE,
-				AppUtils.BASE_PKG);
-		driver = testAppUtils.getDriver();
-	}
+		AppUtils.setCapabilities();
+	}	
 
-	@AfterClass(alwaysRun = true)
-	public void afterClass() {
-		driver.quit();
-	}
+	@BeforeMethod(alwaysRun = true)
+	public void setUp() throws IOException {		
+		driver = AppUtils.getDriver();
+	}	
 
 	@Test(groups = { "Smoke" }, enabled = false)
 	public void testRegisterUser() {
@@ -81,5 +50,14 @@ public class TestAppiumSelendroidApp {
 		homeScreen = new HomeScreen(driver);		
 		webViewScreen = homeScreen.openWebView();		
 		webViewScreen.selectOptionFromList();
+	}
+	
+	@AfterMethod
+	public void afterMethod() {
+	}
+	
+	@AfterClass(alwaysRun = true)
+	public void afterClass() {
+		driver.quit();
 	}
 }

@@ -2,10 +2,10 @@ package com.test.selendroid.app.screens;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
+
+import com.test.utils.AbstractScreen;
 
 public class VerifyUserScreen extends AbstractScreen {
 
@@ -16,7 +16,7 @@ public class VerifyUserScreen extends AbstractScreen {
 		// TODO Auto-generated constructor stub
 		super(driver);
 		// TODO Auto-generated constructor stub
-		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+		loadPage();
 	}
 
 	public HomeScreen registerUser() {

@@ -6,7 +6,8 @@ import io.appium.java_client.android.AndroidDriver;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
+import com.test.utils.AbstractScreen;
 
 public class AppiumGithubScreen extends AbstractScreen {
 
@@ -19,7 +20,7 @@ public class AppiumGithubScreen extends AbstractScreen {
 	public AppiumGithubScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
-		PageFactory.initElements(driver, this);
+		loadPage();
 	}
 
 	public AppiumGithubScreen viewAllIssues() {

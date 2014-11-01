@@ -2,12 +2,10 @@ package com.test.apidemo.app.screens;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
+
+import com.test.utils.AbstractScreen;
 
 public class AppMenuScreen extends AbstractScreen {
 
@@ -17,8 +15,7 @@ public class AppMenuScreen extends AbstractScreen {
 	public AppMenuScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
-		PageFactory.initElements(new AppiumFieldDecorator(driver, 15,
-				TimeUnit.SECONDS), this);
+		loadPage();
 	}
 
 	public AppActivityScreen getActivityPage() {
