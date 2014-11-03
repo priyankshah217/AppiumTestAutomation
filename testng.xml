@@ -2,7 +2,6 @@
 <suite name="Appium Smoke Tests Execution Report"
 	skipfailedinvocationCounts="false" thread-count="100">
 	<!-- parameter name="config-file" value="src/test/resources/default.properties" -->
-
 	<test name="SelendroidAppTests" verbose="5" enabled="true">
 		<groups>
 			<run>

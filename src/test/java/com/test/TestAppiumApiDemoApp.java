@@ -55,6 +55,6 @@ public class TestAppiumApiDemoApp {
 		Assert.assertEquals(
 				screenOrientationPage.isItValidScreenOrientationPage(), true);
 		screenOrientationPage.changeScreenOrientation("USER");
-		Assert.assertEquals(screenOrientationPage.checkOrientationType(), true);
+		Assert.assertEquals(screenOrientationPage.checkOrientationType(), true);		
 	}
 }
