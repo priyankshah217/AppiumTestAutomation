@@ -20,22 +20,22 @@ import com.test.utils.AppUtils;
 public class TestAppiumApiDemoApp {
 	private AndroidDriver driver;
 	private HomeScreen homeScreen;
-	private AppMenuScreen appMenuPage;
-	private AppActivityScreen appActivityPage;
-	private ScreenOrientationScreen screenOrientationPage;
+	private AppMenuScreen appMenuScreen;
+	private AppActivityScreen appActivityScreen;
+	private ScreenOrientationScreen screenOrientationScreen;
 
 	@AfterMethod
 	public void afterMethod() {
 	}
 
-	@BeforeClass(alwaysRun=true)
-	public void initAutomation() throws IOException{
+	@BeforeClass(alwaysRun = true)
+	public void initAutomation() throws IOException {
 		AppUtils.loadConfigProp("config_apidemo_test_app.properties");
 		AppUtils.setCapabilities();
 	}
 
 	@BeforeMethod(alwaysRun = true)
-	public void setUp() throws IOException {		
+	public void setUp() throws IOException {
 		driver = AppUtils.getDriver();
 	}
 
@@ -47,14 +47,15 @@ public class TestAppiumApiDemoApp {
 	@Test(groups = { "Smoke" }, enabled = true)
 	public void testAppActivity() {
 		homeScreen = new HomeScreen(driver);
-		appMenuPage = homeScreen.getAppMenuPage();
-		appActivityPage = appMenuPage.getActivityPage();
+		appMenuScreen = homeScreen.getAppMenuPage();
+		appActivityScreen = appMenuScreen.getActivityPage();
 		// screenOrientationPage = appActivityPage.browseAppActivityScreen()
 		// .getScreenOrientationPage();
-		screenOrientationPage = appActivityPage.getScreenOrientationPage();
+		screenOrientationScreen = appActivityScreen.getScreenOrientationPage();
 		Assert.assertEquals(
-				screenOrientationPage.isItValidScreenOrientationPage(), true);
-		screenOrientationPage.changeScreenOrientation("USER");
-		Assert.assertEquals(screenOrientationPage.checkOrientationType(), true);		
+				screenOrientationScreen.isItValidScreenOrientationPage(), true);
+		screenOrientationScreen.changeScreenOrientation("USER");
+		Assert.assertEquals(screenOrientationScreen.checkOrientationType(),
+				true);
 	}
 }
