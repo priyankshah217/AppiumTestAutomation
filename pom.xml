@@ -9,30 +9,15 @@
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android</artifactId>
-			<version>LATEST</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.uncommons</groupId>
 			<artifactId>reportng</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
 			<version>LATEST</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>LATEST</version>
-		</dependency>
-		<dependency>
-			<groupId>velocity</groupId>
-			<artifactId>velocity-dep</artifactId>
-			<version>1.5-beta2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>3.0</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -42,43 +27,24 @@
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-site-plugin</artifactId>
-			<version>LATEST</version>
+			<version>3.4</version>
 		</dependency>
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>LATEST</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.21</version>
 		</dependency>
 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
-			<version>LATEST</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>LATEST</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>LATEST</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- Includes the Sauce JUnit helper libraries -->
-		<dependency>
-			<groupId>com.saucelabs</groupId>
-			<artifactId>sauce_junit</artifactId>
-			<version>LATEST</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.1.2</version>
+			<version>2.2.0</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -87,7 +53,7 @@
 				<version>2.16</version>
 				<configuration>
 					<suitexmlfiles>
-						<suitexmlfile>testng.xml</suitexmlfile>
+						<suitexmlfile>/src/test/resources/testng.xml</suitexmlfile>
 					</suitexmlfiles>
 					<properties>
 						<property>
@@ -110,9 +76,9 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
-			</plugin>
+			</plugin>			
 		</plugins>
-	</build>
+	</build>	
 	<repositories>
 		<repository>
 			<id>java-net</id>
