@@ -2,7 +2,7 @@
 <suite name="Appium Smoke Tests Execution Report"
 	skipfailedinvocationCounts="false" thread-count="100">
 	<!-- parameter name="config-file" value="src/test/resources/default.properties" -->
-	<test name="SelendroidAppTests" verbose="5" enabled="false">
+	<test name="SelendroidAppTests" verbose="5" enabled="true">
 		<groups>
 			<run>
 				<include name="Smoke" />
@@ -12,7 +12,7 @@
 			<class name="com.test.TestAppiumSelendroidApp" />
 		</classes>
 	</test>
-	<test name="ApiDemoTests" verbose="5" enabled="false">
+	<test name="ApiDemoTests" verbose="5" enabled="true">
 		<groups>
 			<run>
 				<include name="Smoke" />
@@ -32,7 +32,7 @@
 			<class name="com.test.TestAppiumGoogleSearchMobileWeb" />
 		</classes>
 	</test>
-	<test name="EmployeeDirectoryTests" verbose="5" enabled="false">
+	<test name="EmployeeDirectoryTests" verbose="5" enabled="true">
 		<groups>
 			<run>
 				<include name="Smoke" />

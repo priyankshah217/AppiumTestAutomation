@@ -35,7 +35,6 @@ public class TestAppiumEmployeeDirectoryApp {
 	@Test(groups = { "Smoke" }, enabled = true)
 	public void testEmployeeDetails() {
 		String employeeName = "John Williams";
-
 		homeScreen = new HomeScreen(driver);
 		homeScreen.switchToWebView();
 		employeeDetailsScreen = homeScreen.searchName(employeeName).getEmployeeDetails();

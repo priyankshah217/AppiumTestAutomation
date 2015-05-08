@@ -22,8 +22,7 @@ public class EmployeeDetailsScreen extends AbstractScreen {
 	public boolean verifyEmail(String emailID) {
 		// TODO Auto-generated method stub
 		return isElementPresent(MobileBy
-				.AndroidUIAutomator("new UiSelector().descriptionContains(\""
-						+ emailID + "\")"));
+				.AndroidUIAutomator("new UiSelector().descriptionContains(\"" + emailID + "\")"));
 	}
 
 	public HomeScreen navigateToHomeScreen() {
@@ -36,12 +35,11 @@ public class EmployeeDetailsScreen extends AbstractScreen {
 		// TODO Auto-generated method stub
 		viewDirectReport.click();
 		return new DirectReportScreen(driver);
-	}	
+	}
 
 	public boolean verifyManagerName(String employeeName) {
 		// TODO Auto-generated method stub
-		return isElementPresent(MobileBy
-				.AndroidUIAutomator("new UiSelector().descriptionContains(\"View Manager"
-						+ employeeName + "\")"));
+		return isElementPresent(MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\"" + employeeName
+				+ "\")"));
 	}
 }

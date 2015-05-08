@@ -7,7 +7,22 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>AppiumTestAutomation</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<aspectj.version>1.7.4</aspectj.version>
+		<allure.version>1.4.12</allure.version>
+	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>ru.yandex.qatools.allure</groupId>
+			<artifactId>allure-testng-adaptor</artifactId>
+			<version>1.4.12</version>
+			<exclusions>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>org.uncommons</groupId>
 			<artifactId>reportng</artifactId>
@@ -52,6 +67,10 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.16</version>
 				<configuration>
+					<testFailureIgnore>false</testFailureIgnore>
+					<argLine>
+						-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+					</argLine>
 					<suitexmlfiles>
 						<suitexmlfile>/src/test/resources/testng.xml</suitexmlfile>
 					</suitexmlfiles>
@@ -63,10 +82,18 @@
 						<property>
 							<name>listener</name>
 							<value>org.uncommons.reportng.HTMLReporter</value>
+							<value>ru.yandex.qatools.allure.testng.AllureTestListener</value>
 						</property>
 					</properties>
 					<workingDirectory>target/</workingDirectory>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -76,9 +103,29 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
-			</plugin>			
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.10.v20150310</version>
+				<configuration>
+					<webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
+					<stopKey>stop</stopKey>
+					<stopPort>1234</stopPort>
+				</configuration>
+			</plugin>
 		</plugins>
-	</build>	
+	</build>
+	<reporting>
+		<excludeDefaults>true</excludeDefaults>
+		<plugins>
+			<plugin>
+				<groupId>ru.yandex.qatools.allure</groupId>
+				<artifactId>allure-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+		</plugins>
+	</reporting>
 	<repositories>
 		<repository>
 			<id>java-net</id>

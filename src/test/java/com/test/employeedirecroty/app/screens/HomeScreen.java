@@ -2,7 +2,6 @@ package com.test.employeedirecroty.app.screens;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 import org.openqa.selenium.WebElement;
@@ -26,16 +25,20 @@ public class HomeScreen extends AbstractScreen {
 		// TODO Auto-generated method stub
 		searchTextBox.sendKeys(employeeName);
 		this.emoployeeName = employeeName;
-		if (employeeName.equals("")) {
-			driver.sendKeyEvent(AndroidKeyCode.ENTER);
-		}
+		// if (employeeName.equals("")) {
+		driver.sendKeyEvent(66);
+		// }
 		return this;
 	}
 
 	public EmployeeDetailsScreen getEmployeeDetails() {
 		// TODO Auto-generated method stub
-		WebElement element = driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\""
-				+ this.emoployeeName + "\")"));
+//		System.out.println(isElementPresent(MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\""
+//				+ this.emoployeeName + "\")")));
+//		System.out.println(driver.findElements(MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\""
+//				+ this.emoployeeName + "\")")).size());
+		WebElement element = driver.findElements(MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\""
+				+ this.emoployeeName + "\")")).get(1);
 		element.click();
 		return new EmployeeDetailsScreen(driver);
 	}
