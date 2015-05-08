@@ -65,7 +65,6 @@ public abstract class AbstractScreen {
 
 		Set<String> contextSet = driver.getContextHandles();
 		for (String contextName : contextSet) {
-			System.out.println(contextName);
 			if (!contextName.contains("NATIVE_APP")) {
 				driver.context(contextName);				
 				break;

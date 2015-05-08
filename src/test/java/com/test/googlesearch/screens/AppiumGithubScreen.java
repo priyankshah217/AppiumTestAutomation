@@ -17,7 +17,7 @@ public class AppiumGithubScreen extends AbstractScreen {
 	@FindBy(partialLinkText = "View all issues")
 	private WebElement viewAllIssuesLink;
 
-	@FindBy(linkText = "▶")
+	@FindBy(css="body > div > div > a")
 	private WebElement nextIssuePageLink;
 
 	public AppiumGithubScreen(AndroidDriver driver) {

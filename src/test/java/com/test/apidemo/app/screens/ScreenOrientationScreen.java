@@ -18,7 +18,7 @@ public class ScreenOrientationScreen extends AbstractScreen {
 	@AndroidFindBy(id = "android:id/text1")
 	private List<WebElement> orientationList;
 
-	@AndroidFindBy(id = "android:id/action_bar_title")
+	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"App/Activity/Screen Orientation\")")
 	private WebElement actionBarTitle;
 
 	public ScreenOrientationScreen(AndroidDriver driver) {
@@ -45,7 +45,7 @@ public class ScreenOrientationScreen extends AbstractScreen {
 		return this;
 	}
 
-	public boolean checkOrientationType() {
+	public boolean checkOrientationType() {		
 		boolean isPassed = false;
 		if (orientationList.get(0).getText().equals(this.sensorType)) {
 			isPassed = true;

@@ -1,5 +1,6 @@
 package com.test.employeedirecroty.app.screens;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -13,8 +14,7 @@ public class HomeScreen extends AbstractScreen {
 	@AndroidFindBy(className = "android.widget.EditText")
 	private WebElement searchTextBox;
 
-	@AndroidFindBy(className = "android.widget.ListView")
-	private WebElement employeeName;
+	private String emoployeeName;
 
 	public HomeScreen(AndroidDriver driver) {
 		super(driver);
@@ -25,6 +25,7 @@ public class HomeScreen extends AbstractScreen {
 	public HomeScreen searchName(String employeeName) {
 		// TODO Auto-generated method stub
 		searchTextBox.sendKeys(employeeName);
+		this.emoployeeName = employeeName;
 		if (employeeName.equals("")) {
 			driver.sendKeyEvent(AndroidKeyCode.ENTER);
 		}
@@ -33,11 +34,9 @@ public class HomeScreen extends AbstractScreen {
 
 	public EmployeeDetailsScreen getEmployeeDetails() {
 		// TODO Auto-generated method stub
-		// driver.navigate().back();
-		// driver.findElementByAndroidUIAutomator(
-		// "new UiSelector().descriptionContains(\"" + employeeName
-		// + "\")").click();		
-		employeeName.click();
+		WebElement element = driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\""
+				+ this.emoployeeName + "\")"));
+		element.click();
 		return new EmployeeDetailsScreen(driver);
 	}
 
