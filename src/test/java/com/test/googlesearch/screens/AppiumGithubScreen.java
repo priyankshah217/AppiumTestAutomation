@@ -11,6 +11,9 @@ import com.test.utils.AbstractScreen;
 
 public class AppiumGithubScreen extends AbstractScreen {
 
+	@FindBy(partialLinkText = "appium/appium")
+	private WebElement appiumRepoLink;
+
 	@FindBy(partialLinkText = "View all issues")
 	private WebElement viewAllIssuesLink;
 
@@ -24,12 +27,13 @@ public class AppiumGithubScreen extends AbstractScreen {
 	}
 
 	public AppiumGithubScreen viewAllIssues() {
+		appiumRepoLink.click();
 		viewAllIssuesLink.click();
 		return this;
 	}
 
-	public void navigateToIssue() {		
-			nextIssuePageLink.click();
+	public void navigateToIssue() {
+		nextIssuePageLink.click();
 	}
 
 	public AppiumGithubScreen zoomInWebPage() {
